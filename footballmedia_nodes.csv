@@ -5,11 +5,11 @@ vfbexklusiv,vfb exklusiv,medium,,,,Blog,VFB
 ART,ART TAPETEN,medium,,,,Druck,
 baier,Baier DigitalDruck,medium,,,,Druck,
 Bairle,Bairle Druck Medien,medium,,,,Druck,
-DRUCKtuell,DRUCKtuell Verlagsgesellschaft,medium,,,,Druck,
+DRUCKtuell,DRUCKtuell,medium,,,,Druck,
 Frank,Druckhaus Frank,medium,,,,Druck,
 furtwaengler,Druckerei Furtwaengler,medium,,,,Druck,
 GromIlg,Grom Ilg,medium,,,,Druck,
-Hummel,Hummel Siebdruck Werbetechnik,medium,,,,Druck,
+Hummel,Hummel Werbetechnik,medium,,,,Druck,
 Kniebuehler,Kniebuehler Druck,medium,,,,Druck,
 Leute,Druckerei Leute,medium,,,,Druck,
 Manhillen,Manhillen Drucktechnik,medium,,,,Druck,
@@ -31,24 +31,24 @@ ModernMedia,WW ModernMedia,medium,,,,Film und Foto,
 raumSicht,raumSicht360,medium,,,,Film und Foto,
 Suedfilm,Suedfilm,medium,,,,Film und Foto,
 steinerfelix,Felix Steiner,medium,,,,Film und Foto,
-tbsportphoto,Tobias Baur Sportphotografie,medium,,,,Film und Foto,
+tbsportphoto,TB Sportphoto,medium,,,,Film und Foto,
 ZoneSieben,Zone7,medium,,,,Film und Foto,
 EA,Electronic Arts,medium,,,,Gaming,GER
 agneun,Agentur Neun,medium,,,,PR Marketing,
-amici,amici Agentur fuer Medienpraesenz,medium,,,,PR Marketing,
+amici,amici Agentur,medium,,,,PR Marketing,
 BLIM,BLIM Agentur,medium,,,,PR Marketing,
 Convensis,Convensis,medium,,,,PR Marketing,
 DIGITALFEUER,DIGITALFEUER,medium,,,,PR Marketing,
 gardenofyouth,Garden of Youth,medium,,,,PR Marketing,
-Highscore,Highscore Digital Marketing,medium,,,,PR Marketing,
+Highscore,Highscore,medium,,,,PR Marketing,
 imc,imc marketing consult,medium,,,,PR Marketing,
-JOKMK,Jan Oelker Klub und Markenkommunikation,medium,,,,PR Marketing,
+JOKMK,Jan Oelker,medium,,,,PR Marketing,
 KME,Karlsruhe Marketing Event,medium,,,,PR Marketing,
 madness,madness,medium,,,,PR Marketing,
 METATOP,METATOP,medium,,,,PR Marketing,
-Muenchrath,Muenchrath Ideen Medien,medium,,,,PR Marketing,
+Muenchrath,Muenchrath,medium,,,,PR Marketing,
 newtmrrw,newtmrrw,medium,,,,PR Marketing,
-saltico,saltico management marketing,medium,,,,PR Marketing,
+saltico,saltico,medium,,,,PR Marketing,
 SocialMe,SocialMe,medium,,,,PR Marketing,
 Stroeer,Stroeer,medium,,,,PR Marketing,
 Sudhaus,Sudhaus7,medium,,,,PR Marketing,
@@ -59,7 +59,7 @@ DNW,die neue welle,medium,,,,Radio,Region
 DonauFM,Donau3FM,medium,,,,Radio,Region
 Radio7,Radio7,medium,,,,Radio,BW
 Regen,Radio Regenbogen,medium,,,,Radio,BW
-SWR1,SWR1 Baden Wuerttemberg,medium,,,,Radio,BW
+SWR1,SWR1,medium,,,,Radio,BW
 Ton,Radio Ton,medium,,,,Radio,Region
 DAZN,DAZN,medium,,,,Streaming,GER
 LEAGUES,LEAGUES,medium,,,,Streaming,BW
@@ -76,7 +76,7 @@ RNF,Rhein-Neckar Fernsehen,medium,,,,TV,Region
 RON,Rheinpfalz Odenwald Neckar,medium,,,,TV,Region
 RTL,RTL,medium,,,,TV,GER
 SatEins,Sat1,medium,,,,TV,GER
-SevenOne,SevenOne Entertainment Group,medium,,,,TV,GER
+SevenOne,SevenOne Entertainment,medium,,,,TV,GER
 Sky,Sky Deutschland,medium,,,,TV,GER
 SportEins,Sport1,medium,,,,TV,GER
 sportschau,sportschau,medium,,,,TV,GER
@@ -179,16 +179,16 @@ watson,watson,medium,,,,Zeitung,GER
 wbreporter,WochenblattReporterDE,medium,,,,Zeitung,GER
 Zeit,Zeit,medium,,,,Zeitung,GER
 ZVW,Zeitungsverlag Waiblingen,medium,,,,Zeitung,Region
-BFV,Badischer Fussballverband,verband,,EV,,,
+BFV,BFV,verband,,EV,,,
 BSC,Bahlinger SC,verein,vier,EV,SBFV,,
-DFB,Deutscher Fußball Bund,verband,,EV,,,
-DFL,Deutsche Fußball Liga,verband,,GmbH,,,
+DFB,DFB,verband,,EV,,,
+DFL,DFL,verband,,GmbH,,,
 FCA,FC Astoria Walldorf,verein,vier,EV,BFV,,
 FCH,FC Heidenheim,verein,eins,EV,WFV,,
 FCV,FC Villingen,verein,vier,EV,SBFV,,
 GSV,Goeppinger SV,verein,vier,EV,WFV,,
 KSC,Karlsruher SC,verein,zwei,EV,BFV,,
-SBFV,Suedbadischer Fussballverband,verband,,EV,,,
+SBFV,SBFV,verband,,EV,,,
 SCF,SC Freiburg,verein,eins,EV,SBFV,,
 SGV,SGV Freiberg,verein,vier,EV,WFV,,
 SVK,Stuttgarter Kickers,verein,vier,EV,WFV,,
@@ -197,4 +197,4 @@ SVW,SV Waldhof Mannheim,verein,drei,EV,BFV,,
 TSG,TSG Hoffenheim,verein,eins,GmbH,BFV,,
 ULM,SSV Ulm Fussball,verein,zwei,GmbH,WFV,,
 VFB,VfB Stuttgart,verein,eins,AG,WFV,,
-WFV,Wuerttembergischer Fussballverband,verband,,EV,,,
+WFV,WFV,verband,,EV,,,
