@@ -1,3 +1,3 @@
-# Beraterfirmen in der Bundesliga
+# Mediennetzwerke der Profi- und Amateurfußballvereine in Baden-Württemberg
 
-Wir arbeiten mit diesem selbst erstellten Datensatz in der Blockveranstaltung 226503. Der Datensatz ist Teil unserer Prüfungsleistung.
+Ich arbeite mit diesem selbst erstellten Datensatz im Rahmen meiner Bachelorarbeit.
