@@ -1,0 +1,869 @@
+---
+title: "Forschungsbericht Mediennetzwerk Profi- und Amateurfussballvereine Baden-Württemberg"
+author: "Julian Rebmann (jr126)"
+date: "17/01/2025"
+output:
+  html_document:
+    number_sections: yes
+    keep_md: yes
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Abstract und Keywords**
+
+Im Rahmen dieser Forschung analysiere ich in einem ungerichteten und gewichteten Gesamtnetzwerk die Beziehungen zwischen den vierzehn Fußballvereinen aus Baden-Württemberg von der ersten bis zur vierten Liga und den Medien, die mit ihnen in Verbindung stehen. Dazu beschäftige ich mich mit den Vereinen, den Verbänden, den offiziellen Medienpartnern der Vereine, den inoffiziellen Medienpartnern sowie den Medien, die regelmäßig oder unregelmäßig über die Vereine berichten. Dieser Forschungsbericht fasst meine Kernergebnisse zusammen.
+
+Keywords: Netzwerkanalyse, Beziehungen, Baden-Württemberg, Fußball, Bundesliga, 2. Bundesliga, 3. Liga, Regionalliga, Vereine, Profis, Amateure, Medien, Zusammenarbeit, Intereffikation
+
+# Einleitung
+
+Der Fußball ist nicht nur in Deutschland, sondern weltweit eine der populärsten und gesellschaftlich bedeutendsten Sportarten. Mit dem anhaltenden Trend zur Kommerzialisierung im Profifußball sind auch die Anforderungen an die Medien- und Pressearbeit erheblich gestiegen. Große Vereine investieren beträchtliche Ressourcen, um professionelle Kommunikationsstrategien zu entwickeln, die den Verein nicht nur in der Öffentlichkeit positionieren, sondern auch die Bindung zu Fans und Sponsoren stärken. Im Amateurfußball hingegen stehen solche Vereine häufig vor völlig anderen Herausforderungen: Mit begrenzten finanziellen und personellen Mitteln müssen sie dennoch versuchen, medial präsent zu sein und ihre Zielgruppen zu erreichen.
+
+Diese deutlichen Unterschiede in den Rahmenbedingungen zwischen Profis und Amateuren spiegeln sich auch in den Strukturen und Dynamiken der Medienarbeit wider. Während im Profibereich oft hochspezialisierte Abteilungen mit klar definierten Aufgabenfeldern tätig sind, ist die Medienarbeit im Amateurfußball häufig durch ehrenamtliches Engagement und persönliche Netzwerke geprägt. Doch trotz dieser Unterschiede könnte es auch überraschende Gemeinsamkeiten geben, etwa bei der Nutzung moderner Kommunikationskanäle wie Social Media oder in der Art und Weise, wie Vereine mit Journalisten und anderen Akteuren zusammenarbeiten.
+
+In der vorliegenden Forschung wird die Netzwerkanalyse als zentrales Werkzeug eingesetzt, um diese Dynamiken systematisch zu untersuchen. Mit dieser Methode können die Beziehungen und Interaktionen zwischen Akteuren, wie Vereinsvertretern, Medienpartnern und PR-Agenturen, sichtbar gemacht und analysiert werden. Ziel ist es, die Struktur und Funktionsweise der Mediennetzwerke im Profi- und Amateurfußball zu vergleichen und aufzuzeigen, wie unterschiedliche Rahmenbedingungen die Zusammenarbeit beeinflussen. Gleichzeitig soll herausgefunden werden, ob und wo sich Parallelen in der Medienarbeit finden lassen, die möglicherweise von beiden Bereichen genutzt werden könnten.
+
+Die Ergebnisse dieser Netzwerkanalyse sollen nicht nur einen Beitrag zur theoretischen Auseinandersetzung mit der Medienarbeit im Fußball leisten, sondern auch praktische Ansätze für eine effektivere Zusammenarbeit zwischen PR und Journalismus aufzeigen – unabhängig davon, ob es sich um einen Profiverein oder einen Amateurklub handelt.
+
+# Datenerhebung: Zugang, Bereinigung und Codebuch
+
+## Datenzugang
+
+Für die Datenerhebung wurden verschiedene Quellen und Methoden kombiniert:
+
+1. Zunächst wurden die offiziellen Websites der vierzehn untersuchten Vereine systematisch durchforstet und ihre dort aufgeführten Partner analysiert. Wurde ein Partner identifiziert, der in irgendeiner Form mit der Medienarbeit verbunden ist, wurde er in die Analyse aufgenommen. Diese Partner wurden nach ihrem Hauptzweck in folgende Kategorien unterteilt: TV (linear über Satellitenempfang), Radio, Zeitung (sowohl Print- als auch reine Online-Magazine), Streaming (ausschließlich über das Internet empfangbare Videoinhalte), Gaming (z. B. EA als Partner der DFL), Druck (Druckhäuser und Druckereien), Werbung (Werbeagenturen etc.), PR/Marketing (PR- und Marketing-Agenturen), Film und Foto (Bewegtbildagenturen und Fotografen), Website (plattformbezogene Partner ohne journalistischen Auftrag, z. B. reine Statistikseiten wie FUSSBALL.DE), Blog (Fan-Blogs etc.) und Verlag (Verlagshäuser, oft mit Querverbindungen zu von ihnen produzierten Zeitungen).
+
+2. Im nächsten Schritt wurden die Social-Media-Kanäle der Vereine, insbesondere YouTube und Instagram, auf Partner überprüft, die nicht in den offiziellen Sponsorenlisten aufgeführt waren. Dabei wurden unter anderem Produktionsfirmen von YouTube-Dokumentationen oder Fotografen, die auf Instagram verlinkt wurden, identifiziert.
+
+3. Anschließend wurde eine Liste bekannter Medien erstellt, die Berichterstattung über die Vereine vermuten ließ. Diese setzte sich aus eigenen Erinnerungen, Verzeichnissen relevanter Tageszeitungen sowie Listen wichtiger Sportmedien zusammen. Die Berichterstattung dieser Medien wurde überprüft und entsprechend der oben genannten Kategorien eingeordnet.
+
+4. Mit Hilfe von Google News und weiteren Plattformen wie Onefootball wurde die aktuelle Berichterstattung über die Vereine untersucht, um Medien zu identifizieren, die in den vorherigen Schritten nicht erfasst worden waren. Auch diese wurden gemäß den Kategorien aus Schritt 3 eingeordnet.
+
+5. Abschließend wurde der Datensatz durch Erkenntnisse aus Experteninterviews sowie durch gezielte Mailanfragen an die übrigen Vereine vervollständigt. Leider standen auf diese Weise nur Daten des VfB Stuttgart und des SV Stuttgarter Kickers (aus den Experteninterviews) sowie des SV Waldhof Mannheim, des FC 08 Villingen und des SC Freiburg (aus den Mailanfragen) zur Verfügung. Auf Daten der restlichen Vereine muss daher verzichtet werden.
+
+Es wurde mit größter Sorgfalt gearbeitet, um möglichst jede mediale Verbindung der Vereine zu erfassen. Dennoch erhebt die Analyse keinen Anspruch auf Vollständigkeit, da kein Newsportal die Berichterstattung über einen Verein vollständig abbilden kann. Die Ergebnisse sollen als repräsentative Darstellung der Mediennetzwerke der Vereine betrachtet werden und deren Breite so genau wie möglich abbilden.
+
+## Bereinigung des Datensatzes
+
+Die Bereinigung der Daten erfolgte direkt in Google Tables. Aufgrund vielseitiger Erfahrungen im Bereich der Netzwerkanalyse wurde von Beginn an auf eine saubere und strukturierte Datenerhebung geachtet, wodurch der Aufwand für die Datenbereinigung minimal blieb. Dies gewährleistete eine konsistente und verlässliche Grundlage für die weitere Analyse.
+
+## Codebuch
+
+Mein Codebuch zur Übersicht der Codierung liegt in meinem [GitHub-Verzeichnis](https://github.com/JulianR2406/Football-Media).
+
+# Analyse und Interpretation
+
+## Das Gesamtnetzwerk
+
+Das Gesamtnetzwerk umfasst 199 Knoten und 472 Beziehungen (siehe igraph-Objekt). Es ist ungerichtet und gewichtet.
+
+```{r Datensatz einlesen, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+library(igraph)
+
+# Einlesen der Edge- und Nodelist
+edges <- read.csv("https://raw.githubusercontent.com/JulianR2406/Football-Media/refs/heads/main/footballmedia_edges.csv", header=T, as.is=T, sep = ",")
+
+nodes <- read.csv("https://raw.githubusercontent.com/JulianR2406/Football-Media/refs/heads/main/footballmedia_nodes.csv", header=T, as.is=T, sep = ",")
+
+# Erstellen einer Matrix
+edgematrix <-as.matrix(edges)
+
+# Zusammenführen von Edge- und Nodelist als igraph-Objekt footballmedia
+footballmedia <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=F)
+footballmedia
+
+```
+
+```{r Beschreibung des Netzwerks}
+
+# Parameter zu Beschreibung des Netzwerks
+
+
+## ist das Netzwerk bereits vereinfacht?
+is_simple(footballmedia)
+
+## besteht das Netzwerk aus Komponenten?
+## wenn ja, wie vielen?
+is_connected(footballmedia)
+components(footballmedia)
+
+## Dichte des Netzwerks
+edge_density(footballmedia, loops=FALSE)
+
+## Umfang des Netzwerks
+diameter(footballmedia)
+
+## Pfaddistanzen (Distance)
+farthest_vertices(footballmedia)
+
+```
+
+Das Hauptnetzwerk besteht aus einer Komponente, das heißt, dass alle Knoten im Netzwerk irgendwie miteinander verbunden sind. Die Dichte im Netzwerk beträgt 0,025 Prozent von allen möglichen Verbindungen. Die maximale Pfaddistanz beträgt 14 Schritte.
+
+```{r Vertex- und Edge-Attribute}
+
+vertex_attr_names(footballmedia)
+edge_attr_names(footballmedia)
+
+```
+
+Ich habe für das Netzwerk folgende Attribute erhoben (siehe Codebuch):
+
+**Node-Attribute**
+
+-   name: Name des Mediums, des Vereins oder des Verbands als klare Bezeichnung des Knotens.
+-   type: Art des Knotens: medium, verein, verband
+-   liga: Ligazugehörigkeit der Vereine: eins, zwei, drei, vier, bei Medium und Verband bleibt diese Zeile leer
+-   rechtsform: Rechtsform der Vereine: GmbH, EV, AG, bei Medium und Verband bleibt diese Zeile leer
+-   verband: Verbandszugehörigkeit der Vereine, bei Medium und Verband bleibt diese Zeile leer
+-   media: Art der Medien: TV, Radio, Zeitung, Streaming, Gaming, Druck, Werbung, PR Marketing, Film und Foto, Website, Blog, Verlag, bei Verein und Verband bleibt diese Zeile leer
+-   reichweite: Reichweite/Zielgruppe der Medien: GER (Deutschland/überregional), BW (ganz Baden-Württemberg), Region (regional), VFB (Fanangebot des VfB)
+
+**Edge-Attribute**
+
+-   weight: Art der Geschäftsbeziehung: 1 = rechtliche Beziehung (gehört zusammen), 2 = offizielle Partnerschaft, 3 = inoffizielle Partnerschaft (Zusammenarbeit) oder Fan-Medium, 4 = regelmäßige Berichterstattung (Verein), 5 = unregelmäßige Berichterstattung (liga-basiert)
+-   liga: Ligazugehörigkeit der Vereine: eins, zwei, drei, vier
+-   category: Kategorien der Vereine: pro (Erst- und Zweitligisten), ama (Dritt- und Viertligisten)
+
+## Visualisierung mit igraph und visNetwork
+
+```{r Vorbereitung der Visualisierungen}
+
+# Einstellung für two-mode Netzwerk aktivieren
+vertex.attributes(footballmedia)$type
+
+# Knoten entsprechend der Typen formen
+V(footballmedia)[V(footballmedia)$type == "medium"]$shape <- "circle"  
+V(footballmedia)[V(footballmedia)$type == "verein"]$shape <- "square"
+V(footballmedia)[V(footballmedia)$type == "verband"]$shape <- "square"
+
+# Knoten einfärben
+## Knoten des Typs "medium" einfärben
+V(footballmedia)[V(footballmedia)$media == "TV"]$color <- "#FF4500"
+V(footballmedia)[V(footballmedia)$media == "Streaming"]$color <- "#FF6347"
+V(footballmedia)[V(footballmedia)$media == "Radio"]$color <- "#FF7F50"
+V(footballmedia)[V(footballmedia)$media == "Zeitung"]$color <- "#FF8C00"
+V(footballmedia)[V(footballmedia)$media == "Blog"]$color <- "#FFA500"
+V(footballmedia)[V(footballmedia)$media == "Gaming"]$color <- "#FFB6C1"
+V(footballmedia)[V(footballmedia)$media == "Werbung"]$color <- "#FF69B4"
+V(footballmedia)[V(footballmedia)$media == "PR Marketing"]$color <- "#FF1493"
+V(footballmedia)[V(footballmedia)$media == "Film und Foto"]$color <- "#C71585"
+V(footballmedia)[V(footballmedia)$media == "Website"]$color <- "#DB7093"
+V(footballmedia)[V(footballmedia)$media == "Druck"]$color <- "#BA55D3"
+V(footballmedia)[V(footballmedia)$media == "Verlag"]$color <- "#9400D3"
+
+## Knoten des Typs "verein" einfärben
+V(footballmedia)[V(footballmedia)$liga == "eins"]$color <- "lightgreen"
+V(footballmedia)[V(footballmedia)$liga == "zwei"]$color <- "lightgreen"
+V(footballmedia)[V(footballmedia)$liga == "drei"]$color <- "darkgreen"
+V(footballmedia)[V(footballmedia)$liga == "vier"]$color <- "darkgreen"
+
+## Knoten des Typs "verband" einfärben
+V(footballmedia)[V(footballmedia)$type == "verband"]$color <- "cyan"
+
+# Dicke der Kanten anpassen
+E(footballmedia)[E(footballmedia)$weight == "1"]$width <- 1
+E(footballmedia)[E(footballmedia)$weight == "2"]$width <- 0.8
+E(footballmedia)[E(footballmedia)$weight == "3"]$width <- 0.6
+E(footballmedia)[E(footballmedia)$weight == "4"]$width <- 0.4
+E(footballmedia)[E(footballmedia)$weight == "5"]$width <- 0.2
+
+# Größe der Knoten anpassen
+## Degree-Werte berechnen
+degree_values <- degree(footballmedia)
+## Skalierung der Degree-Werte für eine sinnvolle Darstellung
+scaled_degree <- 10 + (degree_values - min(degree_values)) / (max(degree_values) - min(degree_values)) * 40
+## Größe festlegen
+V(footballmedia)[V(footballmedia)$type == "medium"]$size <- scaled_degree[V(footballmedia)$type == "medium"]*0.4
+V(footballmedia)[V(footballmedia)$type == "verein"]$size <- scaled_degree[V(footballmedia)$type == "verein"]*0.2
+V(footballmedia)[V(footballmedia)$type == "verband"]$size <- scaled_degree[V(footballmedia)$type == "verband"]*0.4
+
+# Beschriftung der Kanten löschen
+E(footballmedia)$label = NA
+
+# Visualisierung mit igraph
+
+layout <- layout_with_kk(footballmedia)
+
+scaled_layout <- layout*5
+```
+
+```{r Visualisierung mit igraph}
+
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=scaled_layout, 
+     main ="Übersicht Gesamtnetzwerk", sub = "Verbände in blau, Vereine in grün, Medien in rot")
+
+# Als PNG speichern
+png("footballmedia.png", width = 2000, height = 2000, res = 300) 
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=scaled_layout, 
+     main ="Übersicht Gesamtnetzwerk", sub = "Verbände in blau, Vereine in grün, Medien in rot")
+dev.off()
+
+```
+
+Um eine noch übersichtliche Visualisierung zu erhalten, verwende ich noch zusätzlich das Tool "visNetwork".
+
+```{r interaktive Visualisierung mit visNetwork}
+
+# Knoten entsprechend der Typen formen
+V(footballmedia)[V(footballmedia)$type == "medium"]$shape <- "dot"  
+V(footballmedia)[V(footballmedia)$type == "verein"]$shape <- "square"
+V(footballmedia)[V(footballmedia)$type == "verband"]$shape <- "triangle"
+
+# Dicke der Kanten anpassen
+E(footballmedia)[E(footballmedia)$weight == "1"]$width <- 5
+E(footballmedia)[E(footballmedia)$weight == "2"]$width <- 4
+E(footballmedia)[E(footballmedia)$weight == "3"]$width <- 3
+E(footballmedia)[E(footballmedia)$weight == "4"]$width <- 2
+E(footballmedia)[E(footballmedia)$weight == "5"]$width <- 1
+
+# Größe der Knoten anpassen
+## Degree-Werte berechnen
+degree_values <- degree(footballmedia)
+## Skalierung der Degree-Werte für eine sinnvolle Darstellung
+scaled_degree <- 10 + (degree_values - min(degree_values)) / (max(degree_values) - min(degree_values)) * 40
+## Größe festlegen
+V(footballmedia)[V(footballmedia)$type == "medium"]$size <- scaled_degree[V(footballmedia)$type == "medium"]*2
+V(footballmedia)[V(footballmedia)$type == "verein"]$size <- scaled_degree[V(footballmedia)$type == "verein"]
+V(footballmedia)[V(footballmedia)$type == "verband"]$size <- scaled_degree[V(footballmedia)$type == "verband"]*2
+
+library(visNetwork)
+#visfootballmedia <- 
+toVisNetworkData(footballmedia) %>%
+  c(list(main = "Übersicht Gesamtnetzwerk", sub = "Verbände in blau, Vereine in grün, Medien in rot")) %>%
+  do.call(visNetwork, .) %>%
+  visPhysics(solver = "forceAtlas2Based", 
+             forceAtlas2Based = list(minVelocity = 0.75))
+
+# Als HTML speichern
+#library(htmlwidgets)
+#visSave(visfootballmedia, file = "footballmedia.html")
+
+
+```
+
+Das Gesamtnetzwerk bietet eine umfassende Übersicht über die kommunikativen Beziehungen zwischen Profivereinen (hellgrün), Amateurvereinen (dunkelgrün), Verbänden (blau) und Medien (dargestellt je nach Art des Mediums in verschiedenen Rottönen von orange bis violett) im Profi- und Amateurfußball in Baden-Württemberg. Die Visualisierung verdeutlicht die unterschiedlichen Rollen und die Vernetzungsintensität der Akteure in beiden Fußballbereichen.
+
+Die Struktur des Gesamtnetzwerks ist dicht und zentral organisiert. Besonders auffällig ist die zentrale Position der Verbände, die zahlreiche Verbindungen zu Vereinen und Medien aufweisen. Dies unterstreicht die Bedeutung der Verbände als zentrale Koordinations- und Kommunikationsknoten im Fußball. Die DFL und der DFB erscheinen als dominante Akteure, die sowohl im Profi- als auch im Amateurbereich eine zentrale Rolle einnehmen.
+
+Die Vereine verteilen sich relativ gleichmäßig im Netzwerk. Während einige Profivereine, wie der VfB Stuttgart, im Zentrum des Netzwerks liegen und stark mit den Medien sowie den Verbänden verknüpft sind, zeigen sich Amateurvereine wie die Stuttgarter Kickers in einer eher peripheren Position. Dies spiegelt die geringere Reichweite und die eingeschränkten Ressourcen der Amateurvereine wider, die ihre Medienarbeit stärker auf lokale Akteure beschränken müssen.
+
+Die wichtigsten Medien im Zentrum sind überregionale Akteure wie transfermarkt.de, kicker Sportmagazin, RAN, WELT, BILD, Sport1, onefootball, Sueddeutsche Zeitung und fussballdaten. Auffällig ist zudem die im sportlichen Bereich relativ breite Berichterstattung einiger Regionalzeitungen wie der Heilbronner Stimme und der Blätter des Zeitungsverlags Waiblingen. Aber auch TV-Dienstleister wie Sportschau, SWR, das aktuelle Sportstudio, DAZN und Sky Deutschland sind hervorzuheben.
+
+## Analyse der Teilnetzwerke
+
+Da das Gesamtnetzwerk mit 199 Knoten und 472 Beziehungen sehr umfangreich ist, erstelle ich verschiedene Teilnetzwerke, um das Netzwerk in seinen Einzelteilen besser analysieren zu können. Diese sind in Abhängigkeit von verschiedenen Edge- und Node-Attributen erstellt.
+
+### Teilnetzwerke nach Vereinskategorie Profis vs. Amateure (Edge-Attribut)
+
+Im Folgenden sollen die verschiedenen Teilnetzwerke nach Vereinskategorie betrachtet und deren Zusammenhang mit bestimmten Zusammenarbeitsmustern untersucht werden.
+
+Die Vereinskategorie habe ich wie folgt kategorisiert: "pro" für Erst- und Zweitligisten, "ama" für Dritt- und Viertligisten
+
+```{r Teilnetzwerk pro}
+
+# Knoten entsprechend der Typen formen
+V(footballmedia)[V(footballmedia)$type == "medium"]$shape <- "circle"  
+V(footballmedia)[V(footballmedia)$type == "verein"]$shape <- "square"
+V(footballmedia)[V(footballmedia)$type == "verband"]$shape <- "square"
+
+# Größe der Knoten anpassen
+## Degree-Werte berechnen
+degree_values <- degree(footballmedia)
+## Skalierung der Degree-Werte für eine sinnvolle Darstellung
+scaled_degree <- 10 + (degree_values - min(degree_values)) / (max(degree_values) - min(degree_values)) * 40
+## Größe festlegen
+V(footballmedia)[V(footballmedia)$type == "medium"]$size <- scaled_degree[V(footballmedia)$type == "medium"]*0.4
+V(footballmedia)[V(footballmedia)$type == "verein"]$size <- scaled_degree[V(footballmedia)$type == "verein"]*0.2
+V(footballmedia)[V(footballmedia)$type == "verband"]$size <- scaled_degree[V(footballmedia)$type == "verband"]*0.4
+
+library(igraph)
+# Teilnetzwerk pro erstellen: Alle Erst- und Zweitligisten
+pro <- subgraph.edges(footballmedia, E(footballmedia)[category=="pro"]) 
+
+# Visualisierung mit igraph
+plot(pro, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Teilnetzwerk Profivereine", sub = "Verbände in blau, Vereine in grün, Medien in rot")
+
+# Als PNG speichern
+png("pro.png", width = 2000, height = 2000, res = 300) 
+plot(pro, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Teilnetzwerk Profivereine", sub = "Verbände in blau, Vereine in grün, Medien in rot")
+dev.off()
+
+
+```
+
+Die Struktur des Teilnetzwerks Profifußball ist geprägt von einer hohen Zentralität und Dichte. Verbände wie die DFL und der DFB nehmen eine dominante Position im Zentrum des Netzwerks ein. Diese Verbände sind stark mit den Profivereinen verbunden, was die Bedeutung zentraler Institutionen für die Organisation und Steuerung der Kommunikation im Profifußball unterstreicht.
+
+Die Profivereine, wie der VfB Stuttgart oder der Karlsruher SC, befinden sich ebenfalls in zentraler Position, eng vernetzt mit den Medien und den Verbänden. Diese zentrale Lage im Netzwerk zeigt, dass sie eine wichtige Rolle in der Kommunikation zwischen den verschiedenen Akteuren spielen. Die enge Anbindung an die Verbände ermöglicht den Vereinen Zugang zu wichtigen Ressourcen und strategischer Unterstützung, was ihre mediale Präsenz weiter stärkt.
+
+Das Netzwerk zeigt eine große Anzahl an Verbindungen zwischen Profivereinen und Medien. Medienakteure wie überregionale Tageszeitungen, Sportmagazine und Online-Plattformen stehen in regem Austausch mit den Vereinen. Besonders auffällig ist die starke Präsenz von überregionalen Medien wie Sky Deutschland, kicker oder RAN, die sich zentral im Netzwerk positionieren. Dies deutet darauf hin, dass die Medienarbeit im Profifußball durch eine strategische Zusammenarbeit mit etablierten und reichweitenstarken Medienakteuren geprägt ist.
+
+Die Vielzahl der Verbindungen zeigt, dass die PR-Arbeit im Profifußball auf klar strukturierte und professionelle Kommunikationskanäle setzt. Die Vereine nutzen diese Kanäle, um gezielt Botschaften zu verbreiten und ein breites Publikum zu erreichen. Hierbei spielen spezialisierte PR-Teams und etablierte Kommunikationsstrategien eine zentrale Rolle, wie in meiner Arbeitshypothese vermutet.
+
+Die Medienpräsenz im Profifußball ist durch eine starke Überregionalität geprägt. Medienakteure mit großer Reichweite haben zahlreiche Verbindungen zu den Vereinen, was deren Bedeutung für die Berichterstattung im Profifußball verdeutlicht. Gleichzeitig sind auch regionale Medien wie die Heilbronner Stimme oder der Schwarzwälder Bote stark vertreten, die auf eine lokale Zielgruppe ausgerichtet sind. Dies zeigt, dass die Medienarbeit im Profibereich sowohl auf überregionale als auch auf regionale Berichterstattung ausgerichtet ist, um eine möglichst breite Aufmerksamkeit zu erzielen.
+
+Innerhalb des Netzwerks lassen sich Unterschiede zwischen den Vereinen erkennen. Profivereine mit größerer Reichweite, wie der VfB Stuttgart, zeigen eine stärkere Vernetzung mit überregionalen Medien und Verbänden. Kleinere Profivereine wie der Karlsruher SC oder der SSV Ulm 1846 scheinen stärker regional orientiert zu sein, weisen jedoch ebenfalls zahlreiche Verbindungen auf. Dies unterstreicht, dass die Größe und Bedeutung eines Vereins die Intensität und Reichweite seiner Kommunikationsbeziehungen beeinflusst.
+
+Die zentralen Positionen der Verbände, insbesondere der DFL und des DFB, verdeutlichen ihre koordinierende Funktion im Netzwerk. Sie agieren als zentrale Knotenpunkte, die sowohl die Vereine als auch die Medien miteinander verbinden. Diese starke Einbindung der Verbände in die Kommunikationsstrukturen zeigt deren wichtige Rolle bei der Organisation und Steuerung der PR-Arbeit im Profifußball.
+
+Das Teilnetzwerk der Profivereine bestätigt meine Hypothese, dass die Medien- und PR-Arbeit im Profifußball durch eine hohe Zentralität, strategische Kontrolle und professionelle Ressourcen geprägt ist. Die enge Vernetzung zwischen Vereinen, Verbänden und überregionalen Medien zeigt, wie stark institutionalisierte Strukturen und gezielte Kommunikationsstrategien die mediale Präsenz der Profivereine beeinflussen. Die Ergebnisse verdeutlichen die Bedeutung professioneller Netzwerke für den Erfolg der Medienarbeit im Profibereich und liefern wertvolle Erkenntnisse für die Analyse der Unterschiede zum Amateurfußball.
+
+```{r Teilnetzwerk ama}
+
+library(igraph)
+# Teilnetzwerk ama erstellen: Alle Dritt- und Viertligisten
+ama <- subgraph.edges(footballmedia, E(footballmedia)[category=="ama"]) 
+
+# Visualisierung mit igraph
+plot(ama, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Teilnetzwerk Amateurvereine", sub = "Verbände in blau, Vereine in grün, Medien in rot")
+
+# Als PNG speichern
+png("ama.png", width = 2000, height = 2000, res = 300) 
+plot(ama, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Teilnetzwerk Amateurvereine", sub = "Verbände in blau, Vereine in grün, Medien in rot")
+dev.off()
+
+```
+
+Im Vergleich zum Profibereich wirkt das Netzwerk der Amateurvereine deutlich weniger dicht und zentralisiert. Es zeigt eine fragmentierte Struktur, in der Vereine, Medien und Verbände teilweise isoliert voneinander agieren. Die zentrale Position der Verbände wie etwa des WFV ist zwar sichtbar, jedoch weniger dominant als im Profibereich. Dies deutet darauf hin, dass die koordinierende Rolle der Verbände im Amateurfußball weniger stark ausgeprägt ist.
+
+Viele Verbindungen im Netzwerk sind auf einzelne Cluster beschränkt. Dies deutet darauf hin, dass Amateurvereine ihre Medienarbeit stark regional ausrichten und in erster Linie mit lokalen Partnern zusammenarbeiten. Diese Fragmentierung spiegelt die geringere institutionelle Einbettung und die flexibleren Strukturen im Amateurfußball wider.
+
+Die Verbindungen zwischen Amateurvereinen und Medien sind deutlich begrenzter als im Profibereich. Medienakteure im Amateurnetzwerk sind überwiegend lokale und regionale Zeitungen wie die Heilbronner Stimme, die Ludwigsburger Kreiszeitung oder die Badische Zeitung, Nachrichtenportale oder spezialisierte kleinere Plattformen. Beispiele hierfür sind die Streamingplattform LEAGUES, die die Spiele der Regionalliga zeigt, sowie das Statistikportal FuPa. Diese enge Fokussierung auf regionale Medien zeigt, dass Amateurvereine auf eine lokal begrenzte Berichterstattung angewiesen sind.
+
+Auch die Anzahl der Verbindungen pro Verein ist geringer als im Profibereich. Dies deutet darauf hin, dass die Ressourcen und Kapazitäten der Amateurvereine, um eine breit angelegte Medienarbeit zu leisten, eingeschränkt sind. Die Zusammenarbeit zwischen PR und Journalismus scheint im Amateurfußball stärker durch persönliche Netzwerke und direkte Kontakte geprägt zu sein, wie es in der Hypothese formuliert wurde.
+
+Im Amateurbereich spielen regionale und lokale Medien eine dominante Rolle. Überregionale Medien oder große Plattformen, die im Profibereich stark vertreten sind, sind nur noch vereinzelt zu finden. Dies spiegelt die geringere öffentliche und mediale Reichweite von Amateurvereinen wider. Die Medienpräsenz ist stark ortsgebunden, was darauf hinweist, dass Amateurvereine weniger strategische Kontrolle über ihre Außendarstellung haben und auf die Berichterstattung der lokalen Presse angewiesen sind.
+
+Innerhalb des Netzwerks lassen sich Unterschiede zwischen den Amateurvereinen erkennen. Einige Vereine wie die Stuttgarter Kickers weisen vergleichsweise viele Verbindungen zu Medien und Verbänden auf, was auf eine aktivere Medienarbeit hinweist. Andere Vereine sind eher peripher positioniert und verfügen über wenige Kontakte, was auf eine geringere Kommunikationsaktivität oder begrenzte Ressourcen hindeutet. Dies verdeutlicht die Heterogenität im Amateurfußball sowie die Sonderrolle der Stuttgarter Kickers als ehemaligem Profiverein und zeigt, dass Vereine je nach Größe und Bedeutung unterschiedlich stark in das Kommunikationsnetzwerk eingebunden sind.
+
+Das Teilnetzwerk der Amateurvereine bestätigt meine Hypothese, dass die Kommunikationsstrukturen im Amateurfußball weniger dicht, weniger strategisch und stärker regional geprägt sind. Die geringe Anzahl an Verbindungen und die Fragmentierung des Netzwerks spiegeln die begrenzten Ressourcen und die flexibleren Strukturen im Amateurfußball wider. Die Medienarbeit basiert hier stärker auf persönlichen Beziehungen und direkten Interaktionen, während überregionale Berichterstattung nahezu keine Rolle spielt. Diese Analyse zeigt die deutlichen Unterschiede zum Profibereich und liefert wertvolle Einblicke in die besonderen Herausforderungen und Gegebenheiten der Medienarbeit im Amateurfußball.
+
+## Netzwerkmaße
+
+Im Folgenden sollen verschiedene Netzwerkmaße untersucht werden. Dazu gehören Komponenten, Dyaden, Triaden und Ego-Netzwerke.
+
+### Komponenten
+
+```{r Komponenten zählen}
+
+# Anzahl der Komponenten
+count_components(footballmedia)
+
+```
+
+Das Netzwerk besteht aus einer einzigen **Komponente**, was bedeutet, dass alle Knoten in irgendeiner Form miteinander verbunden sind. Eine weitergehende Analyse hinsichtlich starker und schwacher Komponenten erübrigt sich daher, da keine zusätzlichen Unterstrukturen im Netzwerk existieren.
+
+### Dyaden
+
+```{r Dyadenzensus vereinfachtes Gesamtnetzwerk, fig.height=6, fig.width=10, message=FALSE, warning=FALSE, paged.print=TRUE}
+
+
+
+# Durchführung des Dyadenzensus
+dyad_census(footballmedia)
+
+# Ausgabe der dyadischen Beziehungen nach dem MAN-Schema
+# M = Mutal (reziprok)
+# A = Asymmetrical (einseitig gerichtet)
+# N = Null (keine Beziehung)
+
+```
+
+**Dyaden** stellen wesentliche Bausteine für Netzwerke dar. Da das untersuchte Netzwerk jedoch ungerichtet ist, ergibt sich zwangsläufig ein Asymmetrie-Wert von 0. Alle 472 Beziehungen im Netzwerk sind reziprok, während 19.229 potenzielle Beziehungen nicht existieren. Eine weiterführende Analyse der reziproken Beziehungen würde somit keine zusätzlichen Erkenntnisse liefern, da sie die Eigenschaften des Gesamtnetzwerks vollständig widerspiegelt.
+
+### Triaden
+
+Der Triadenzensus ist ein etabliertes Instrument, um die Zusammensetzung von Netzwerken zu analysieren und zu vergleichen.
+
+```{r Triadenzensus allgemein}
+
+# Der Zensus folgt dem abgewandelten M-A-N Schema in der Beschreibung und liefert die Ergebnisse von 16 Triadentypen.                               
+# Die Reihenfolge der Ausgabe lässt sich über den Befehl ?triad_census festlegen.
+?triad_census
+# Hier werden 16 Triadentypen numerisch aufsteigend abgetragen.
+
+# Übersicht über Triaden in einem Netzwerk
+triad_census(footballmedia)
+
+```
+
+Im Zusammenhang mit dem **Triadenzensus** zeigt sich ebenfalls eine typische Struktur für ein ungerichtetes Netzwerk. Werte werden ausschließlich für reziproke Triadentypen ausgegeben: Das Netzwerk umfasst 1.209.664 Triaden ohne Verbindungen, 75.109 Triaden mit einer Verbindung, 8.903 Triaden mit zwei Verbindungen und 23 vollständig verbundene Triaden.
+
+```{r Triadenstrukturen / Motifs}
+
+# Mit dem Befehl motifs lassen sich spezifische Triadentypen anzeigen:
+# Das numerische Argument legt fest, wie viele Verbindungen untersucht werden sollen.
+
+motifs(footballmedia, size=3)
+count_motifs(footballmedia, size=3)
+
+# Die Anzahl der unterschiedlichen motifs entspricht grob dem Triadenzensus.
+# Der Gesamtwert gibt alle triadischen Verbindungen in einem Netzwerk an.
+
+```
+
+Insgesamt existieren 8.926 triadische Beziehungen im Netzwerk. Diese Zahlen verdeutlichen die hierarchische Struktur und Verknüpfungstiefe des Netzwerks.
+
+### Ego-Netzwerke
+
+Manchmal ist es hilfreich, spezifische Knoten aus dem Netzwerk zu isolieren und genauer zu untersuchen. Dieser Ansatz ermöglicht es, einzelne Akteure und deren direkte sowie indirekte Beziehungen besser zu verstehen. Mit diesem Verfahren „zoomt“ man auf einen bestimmten Knoten im Netzwerk, um detaillierte Analysen durchzuführen. Jedes Netzwerk besteht dabei aus einem Ego (dem betrachteten Knoten) und seinen Alteri (den direkt oder indirekt verbundenen Knoten). Diese sogenannten **Ego-Netzwerke** lassen sich einzeln analysieren, was tiefere Einblicke in die Position und Bedeutung des betrachteten Knotens liefert.
+
+Da es für die Deutung des Netzwerks von großer Bedeutung sein kann, wer im Netzwerk die meisten Beziehungen hat, und welche Struktur dessen direktes Netzwerk aufweist, wurde der 1. FC Heidenheim als Knoten mit dem höchsten Degree-Wert ausgewählt. Anschließend wurden die Ego-Netzwerke des Vereins erstellt, um die verschiedenen Beziehungsgrade zu analysieren.
+
+**Ego-Netzwerk erster Ordnung**
+
+```{r Ego-Netzwerk erster Ordnung für den höchsten Degree}
+
+library(igraph)
+library(visNetwork)
+
+# Knoten mit den meisten Verbindungen anzeigen
+ego_size(footballmedia)
+which.max(ego_size(footballmedia))
+
+# Berechnung des Degree-Werts und Selektierung des Knotens mit dem höchsten Degree-Wert
+degree(footballmedia)
+which.max(degree(footballmedia))
+
+# Selektierung aller Knoten, die mit "FC Heidenheim" verbunden sind
+b_king <- make_ego_graph(footballmedia, order = 1, nodes = V(footballmedia)$name == "FC Heidenheim", mode ="all")
+
+# Zwischenschritt zur Herstellung des igraph-Objekts b_king1
+b_king1 <- b_king[[1]]
+b_king1
+
+# Anpassung der Farbe der Knoten und Kanten
+V(b_king1)$color <- "gold"
+E(b_king1)$color <- "grey80"
+
+# Visualisierung mit igraph
+plot(b_king1, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Ego-Netzwerk 1.FC Heidenheim, erster Grad", sub = "nur direkte Beziehungen des ersten Grads (52 alteri)")
+
+# Als PNG speichern
+png("b_king1.png", width = 2000, height = 2000, res = 300) 
+plot(b_king1, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Ego-Netzwerk 1.FC Heidenheim, erster Grad", sub = "nur direkte Beziehungen des ersten Grads (52 alteri)")
+dev.off()
+
+```
+
+Dieses Netzwerk umfasst ausschließlich die direkten Verbindungen des 1. FC Heidenheim. Es zeigt, dass der Verein insgesamt 52 Medien und Verbände als direkte Partner hat. Diese Beziehungen umfassen offizielle Kommunikationspartner und weitere Akteure, die eine Rolle in der Berichterstattung über den Verein spielen.
+
+**Egonetzwerke zweiter und dritter Ordnung** Ego-Netzwerke lassen sich leicht um die zweite oder dritte Ordnung erweitern. Dies ermöglicht eine genauere Analyse der größten Knoten.
+
+```{r Egonetzwerke zweiter und dritter Ordnung}
+
+# Selektierung aller Knoten, die in zweiter Ordnung mit "FC Heidenheim" verbunden sind
+b_king2 <- make_ego_graph(footballmedia, order = 2, nodes = V(footballmedia)$name == "FC Heidenheim" , mode ="all")
+b_king2 <- b_king2[[1]]
+
+# Anpassung der Farbe und Größe von Knoten und Kanten
+V(b_king2)$color <- "orange"
+E(b_king2)$color <- "grey80"
+V(b_king2)$size <- degree(b_king2)*.5
+
+# Visualisierung mit igraph
+plot(b_king2, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Ego-Netzwerk 1.FC Heidenheim, zweiter Grad", sub = "Beziehungen des zweiten Grads (85 alteri)")
+
+# Als PNG speichern
+png("b_king2.png", width = 2000, height = 2000, res = 300) 
+plot(b_king2, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Ego-Netzwerk 1.FC Heidenheim, zweiter Grad", sub = "Beziehungen des zweiten Grads (85 alteri)")
+dev.off()
+
+#Anzahl Knoten
+gorder(b_king2)
+
+# Selektierung aller Knoten, die in dritter Ordnung mit "privat beraten" verbunden sind
+b_king3 <- make_ego_graph(footballmedia, order = 3, nodes = V(footballmedia)$name == "FC Heidenheim", mode ="all")
+b_king3 <- b_king3[[1]]
+
+# Anpassung der Farbe und Größe von Knoten und Kanten
+V(b_king3)$color <- "red"
+E(b_king3)$color <- "grey80"
+V(b_king3)$size <- degree(b_king3)*.5
+
+# Visualisierung mit igraph
+plot(b_king3, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Ego-Netzwerk 1.FC Heidenheim, dritter Grad", sub = "Beziehungen des dritten Grads (193 alteri)")
+
+# Als PNG speichern
+png("b_king3.png", width = 2000, height = 2000, res = 300) 
+plot(b_king3, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Ego-Netzwerk 1.FC Heidenheim, dritter Grad", sub = "Beziehungen des dritten Grads (193 alteri)")
+dev.off()
+
+# Anzahl Knoten
+gorder(b_king3)
+
+# Darstellung als Vergleich:
+V(b_king1)$shape <- "circle"  
+V(b_king2)$shape <- "circle"  
+V(b_king3)$shape <- "circle"  
+  
+par(mfrow=c(1,3), mar=c(0,0,1,2))
+plot(b_king1, edge.arrow.size=.3, main="Erster Grad")
+plot(b_king2, edge.arrow.size=.3,  main="Zweiter Grad")
+plot(b_king3, edge.arrow.size=.3, main="Dritter Grad")
+par(mfrow=c(1,1), mar=c(0,0,1,2))
+
+
+```
+
+**Ego-Netzwerk zweiter Ordnung**: Hier werden zusätzlich zu den direkten Verbindungen auch die Knoten berücksichtigt, die über die 52 Medien und Verbände mit dem 1. FC Heidenheim verbunden sind. Dadurch erweitert sich das Netzwerk auf 85 Alteri, was die indirekte Reichweite des Vereins deutlich macht.
+
+**Ego-Netzwerk dritter Ordnung**: In dieser Ebene werden die weitergehenden Verbindungen der Vereine, Medien und Verbände, die in den Netzwerken erster und zweiter Ordnung enthalten sind, einbezogen. Das Netzwerk wächst hier auf 650 Alteri an, was die umfassende Vernetzung des 1. FC Heidenheim zeigt.
+
+Dass der 1. FC Heidenheim der Knoten mit den meisten Verbindungen ist, lässt sich durch mehrere Faktoren erklären. Der Verein hat eine Vielzahl an offiziellen und inoffiziellen Medienpartnern und übertrifft damit sogar Vereine wie den VfB Stuttgart und den SC Freiburg, die ähnliche Degree-Werte aufweisen. Die überregionale Relevanz des 1. FC Heidenheim – insbesondere durch den Aufstieg in die Bundesliga – macht ihn zudem zu einem interessanten Akteur für die Berichterstattung, was seine starke Vernetzung weiter begünstigt. Im Vergleich zu Zweit- bis Viertligisten ist diese überregionale Bedeutung ein entscheidender Vorteil.
+
+Die Analyse des Ego-Netzwerks des 1. FC Heidenheim zeigt die zentrale Bedeutung des Vereins im Gesamtnetzwerk. Mit 52 direkten Verbindungen und einer indirekten Reichweite, die im dritten Grad auf 650 Alteri anwächst, hebt sich der 1. FC Heidenheim allerdings nur minimal von anderen vergleichbaren Vereinen wie dem VfB Stuttgart oder dem SC Freiburg ab. Insgesamt weisen die Erstligisten allerdings eine beachtlich höhere Stellung im Netzwerk als die Zweit- bis Viertligisten auf. Dies liegt nicht nur an der überregionalen Relevanz, sondern auch an der Vielzahl offizieller und inoffizieller Medienpartner. Das Ego-Netzwerk verdeutlicht außerdem, wie wichtig die Profivereine und stellvertretend der 1. FC Heidenheim für die Struktur und Verknüpfung von Medien und Verbänden sind.
+
+## Zentralitätsmaße
+
+Im folgenden Abschnitt sollen einige Zentralitätsmaße genauer untersucht werden. Dazu zählen Degree, Betweenness und Broker, Closeness und ein Spezialfall zur Analyse besonders einflussreicher Knoten.
+
+Je nach Auswahl des Netzwerks unterscheiden sich die Analyseergebnisse stark. Deshalb ist es notwendig, zunächst zu klären, welche Netzwerke untersucht werden sollen.
+
+Damit die Daten konsistent bleiben, werden hier das Gesamtnetzwerk sowie die Teilnetzwerke erneut erstellt. Das ist in der Regel nicht notwendig, dient hier aber der Absicherung der Datenkonsistenz.
+
+```{r Zentralitätsmaße: Gesamtnetzwerk und Teilnetzwerke, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+library(igraph)
+library(visNetwork)
+
+# Einlesen der Edge- und Nodelist
+edges <- read.csv("https://raw.githubusercontent.com/JulianR2406/Football-Media/refs/heads/main/footballmedia_edges.csv", header=T, as.is=T, sep = ",")
+
+nodes <- read.csv("https://raw.githubusercontent.com/JulianR2406/Football-Media/refs/heads/main/footballmedia_nodes.csv", header=T, as.is=T, sep = ",")
+
+# Erstellen einer Matrix
+edgematrix <-as.matrix(edges)
+
+# Zusammenführen von Edge- und Nodelist als igraph-Objekt footballmedia
+footballmedia <- graph_from_data_frame(d=edgematrix, vertices=nodes, directed=F)
+footballmedia
+
+
+
+```
+
+### Degree
+
+**Degree-Werte allgemein** Analyse des Knotens mit den häufigsten starken Beziehungen:
+
+```{r Zentralität: Degree-Werte allgemein}
+
+# Knoten mit den stärksten Beziehungen im Gesamtnetzwerk
+degree(footballmedia, mode="all")
+which.max(degree(footballmedia, mode="all"))
+
+# Teilnetzwerke 
+# 1. Profvereine
+degree(pro, mode="all")
+which.max(degree(pro, mode="all"))
+# 2. Amateurvereine
+degree(ama, mode="all")
+which.max(degree(ama, mode="all"))
+
+
+```
+
+Der Vergleich der Netzwerke hinsichtlich des **allgemeinen Degree-Werts** zeigt, dass im Gesamtnetzwerk der Knoten „FC Heidenheim“ mit einem Degree-Wert von 52 die meisten Verbindungen aufweist. Interessanterweise bleibt dies auch im Teilnetzwerk der Profivereine unverändert, da „FC Heidenheim“ mit ebenfalls 52 Verbindungen die stärkste Verknüpfung hat. Im Teilnetzwerk der Amateurvereine ist hingegen der Knoten „SV Waldhof Mannheim“ mit einem Degree-Wert von 30 der zentralste Akteur.
+
+Da die absoluten Degree-Werte nur begrenzt aussagekräftig sind, wurde eine Normalisierung durchgeführt. Dabei wird der Degree-Wert eines Knotens ins Verhältnis zur Gesamtanzahl möglicher Verbindungen im jeweiligen Netzwerk gesetzt und als Prozentwert ausgedrückt. Diese Methode erlaubt präzisere Aussagen über die Rolle eines Knotens.
+
+```{r Zentralität: Degree-Werte zentralisiert}
+
+# 1. Knoten mit den stärksten Beziehungen im Gesamtnetzwerk
+degree(footballmedia, mode="all", normalized = TRUE)
+which.max(degree(footballmedia, mode="all"))
+
+# 2. Teilnetzwerke 
+# 2.1 Profivereine
+degree(pro, mode="all", normalized = TRUE)
+which.max(degree(pro, mode="all"))
+# 2.2 Amateurvereine
+degree(ama, mode="all", normalized = TRUE)
+which.max(degree(ama, mode="all"))
+
+```
+
+Der Vergleich der Netzwerke anhand **der normalisierten Degree-Werte** zeigt folgendes Bild:
+
+-   Im Gesamtnetzwerk erreicht der „FC Heidenheim“ 26,26% der maximal möglichen Verbindungen.
+
+-   Im Teilnetzwerk der Profivereine erhöht sich dieser Wert auf 48,14%, da die Gesamtzahl der Knoten im Netzwerk geringer ist und der Verein relativ gesehen eine stärkere Position einnimmt.
+
+-   Im Teilnetzwerk der Amateurvereine hat der „SV Waldhof Mannheim“ mit 31,91% der möglichen Verbindungen die höchste Degree-Zentralität.
+
+Die normalisierten Werte verdeutlichen, dass der „FC Heidenheim“ aufgrund seiner breiten Verbindungen sowohl im Gesamtnetzwerk als auch im Profibereich eine dominierende Rolle einnimmt. Im Gegensatz dazu zeigt der „SV Waldhof Mannheim“ im Amateurbereich seine überregionale Bedeutung durch eine vergleichsweise höhere Vernetzung als andere Amateurvereine. Dies resultiert vor allem aus seiner starken medialen Präsenz und zahlreichen offiziellen sowie inoffiziellen Partnerschaften, wodurch er Vereine wie den „SV Sandhausen“ oder Viertligisten deutlich übertrifft.
+
+### Betweeness und Broker im Netzwerk
+
+Die **Betweenness-Zentralität** misst, wie wichtig ein Knoten als „Brücke“ für die Verbindungen zwischen anderen Knoten im Netzwerk ist. Sie zeigt, welche Akteure essenziell für die Vernetzung des Netzwerks sind.
+
+```{r Zentralität: Betweenness als Broker, fig.height=10, fig.width=16, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# Betweenness-Verteilung im Gesamtnetzwerk
+betweenness(footballmedia, normalized = TRUE)
+# Selektierung des Knotens mit dem höchsten Betweenness-Wert
+which.max(betweenness(footballmedia))
+
+# Betweenness-Verteilung im Teilnetzwerk Profivereine
+betweenness(pro, normalized = TRUE)
+which.max(betweenness(pro))
+
+# Betweenness-Verteilung im Teilnetzwerk Amateurvereine
+betweenness(ama, normalized = TRUE)
+which.max(betweenness(ama))
+
+# Anpassung der Farbe und Größe von Knoten, Kanten und Beschriftungen
+V(footballmedia)$color <- "blue"
+V(footballmedia)$size <- degree(footballmedia)  
+E(footballmedia)$color <- "gold"
+V(footballmedia)$label.color <- "black"
+  
+# Anpassung der Farbe des Brokers im Gesamtnetzwerk
+V(footballmedia)[V(footballmedia)$name == "FC Heidenheim"]$color <- "red"
+```
+
+```{r Zentralität: Betweenness als Broker Visualisierung, fig.height=10, fig.width=16, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# Visualisierung mit igraph
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Broker im Netzwerk", sub = "vereinfachtes Hauptnetzwerk")
+
+# Als PNG speichern
+png("footballmedia_betweenness.png", width = 2000, height = 2000, res = 300) 
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Broker im Netzwerk", sub = "vereinfachtes Hauptnetzwerk")
+dev.off()
+
+```
+
+Die Ergebnisse zeigen:
+
+-   Im Gesamtnetzwerk hat der „WFV“ mit einem Wert von 0,346 die höchste Betweenness-Zentralität. Dies ist nachvollziehbar, da der Verband mit den meisten untersuchten Vereinen verbunden ist und somit als Hauptvermittler agiert.
+
+-   Im Teilnetzwerk der Profivereine weist die „DFL“ mit einem Wert von 0,344 die höchste Betweenness-Zentralität auf. Da alle Profivereine mit der DFL verknüpft sind, übernimmt diese eine ähnliche Vermittlungsrolle wie der WFV im Gesamtnetzwerk.
+
+-   Im Teilnetzwerk der Amateurvereine nimmt überraschenderweise der Streamingdienst „LEAGUES“ die Spitzenposition mit einem Wert von 0,40 ein. Dies erklärt sich durch seine zentrale Rolle in der Regionalliga, da die meisten Amateurvereine in dieser Liga spielen und über den Dienst übertragen werden. Somit laufen viele Verbindungen über diesen Akteur.
+
+Die Ergebnisse bestätigen meine Hypothese, dass zentrale Verbände wie der WFV und die DFL im Profibereich eine koordinierende und vernetzende Funktion innehaben. Im Amateurbereich zeigt sich jedoch ein interessanter Unterschied: Hier tritt kein Verband, sondern ein externer Akteur (LEAGUES) als zentraler Vermittler auf, was die Abhängigkeit der Amateurvereine von spezifischen Medien- und Streamingdiensten betont.
+
+### Closeness
+
+Die **Closeness-Zentralität** gibt an, wie eng ein Knoten mit anderen Akteuren im Netzwerk verbunden ist. Sie zeigt, welche Akteure schnell und effizient mit anderen Knoten interagieren können.
+
+```{r Zentralität: Closeness, fig.height=10, fig.width=16, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# Closeness 
+?closeness
+
+# Netzwerk neu einlesen
+library(igraph)
+library(visNetwork)
+
+# Berechung des Closeness-Werts
+close <- closeness(footballmedia, mode="all", normalized=TRUE)
+close
+
+# Selektierung der Knoten mit dem höchsten bzw. niedrigsten Closeness-Wert
+which.max(close)
+which.min(close)
+
+# Anpassung der Farbe von Knoten, Kanten und Beschriftungen
+V(footballmedia)$color <- "gold"
+E(footballmedia)$color <- "gold"
+V(footballmedia)$label.color <- "black"
+  
+# Anpassung der Farbe der Knoten mit dem höchsten bzw. niedrigsten Closeness-Wert
+V(footballmedia)[V(footballmedia)$name == "WFV"]$color <- "red"
+V(footballmedia)[V(footballmedia)$name == "regiotrends Internetzeitung"]$color <- "green"
+
+# Visualisierung mit igraph
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Gesamtnetzwerk", sub = "Closeness-Werte illustriert")
+
+# Als PNG speichern
+png("footballmedia_closeness.png", width = 2000, height = 2000, res = 300) 
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Gesamtnetzwerk", sub = "Closeness-Werte illustriert")
+dev.off()
+
+```
+
+-   Der „WFV“ hat mit 23,29% die höchste Closeness-Zentralität im Gesamtnetzwerk. Dies liegt nahe, da er durch seine Rolle als Verband viele direkte Verbindungen aufweist und somit ein zentraler Akteur ist.
+
+-   Der Knoten mit der geringsten Closeness-Zentralität ist die „regiotrends Internetzeitung“ mit 9,35%. Dies erklärt sich durch ihre geringe Vernetzung, da sie lediglich eine schwache Verbindung zum „Bahlinger SC“ aufweist, einem der am wenigsten zentralen Vereine.
+
+Die Ergebnisse zeigen, dass Closeness und Betweenness eng miteinander korrelieren, da Akteure mit vielen Verbindungen (wie der WFV) sowohl als Brücken fungieren als auch eng mit dem Netzwerk verknüpft sind.
+
+### Spezialfall: InfluenceR
+
+Wenn es um einflussreiche Knoten in einem Netzwerk geht, gibt es ein Spezialpaket InfluenceR, das zusätzlich installiert werden kann. Damit wird es sehr einfach, einflussreiche Knoten auszulesen.
+
+```{r InfluenceR Paket: Analyse von einflussreichen Knoten, fig.height=8, fig.width=12, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+# Installation InfluenceR Programmbibliothek (nur, falls nötig)
+# install.packages("influenceR")
+
+library(igraph)
+library(influenceR)
+library(visNetwork)
+
+# Was macht die Programmbibliothek InfluenceR?
+?influenceR
+
+# Wir erhalten einige neue Funktionen hinzu:
+# 1. ens(g) berechnet den Zugang zu strukturellen Löchern in einem Netzwerk
+# 2. bridging(g) berechnet die Knoten, die es ermöglichen, schneller andere Knoten zu erreichen, sogenannte Brücken.
+
+# Berechnung des Holes-Werts und Selektierung des Knotens mit dem höchsten Holes-Wert
+b_holes <- ens(footballmedia)
+which.max(b_holes)
+
+# Berechnung des Bridges-Werts und Selektierung des Knotens mit dem höchsten Bridges-Wert
+b_bridges <- bridging(footballmedia)
+which.max(b_bridges)
+
+# Anpassung der Farbe von Knoten, Kanten und Beschriftungen
+V(footballmedia)$color <- "gold"
+E(footballmedia)$color <- "gold"
+V(footballmedia)$label.color <- "black"
+
+# Anpassung der Farbe der Knoten mit dem höchsten Holes- bzw. Bridges-Wert
+V(footballmedia)[V(footballmedia)$name == "FC Heidenheim"]$color <- "green"
+V(footballmedia)[V(footballmedia)$name == "Badische Neueste Nachrichten"]$color <- "blue"
+
+# Visualisierung mit igraph
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Einflussreiche Knoten", sub = "Strukturelle Löcher (grün) und Brücken (blau)")
+
+# Als PNG speichern
+png("footballmedia_influencer.png", width = 2000, height = 2000, res = 300) 
+plot(footballmedia, 
+     asp=1, 
+     vertex.label.cex=0.5,
+     layout=layout_with_kk, 
+     main ="Einflussreiche Knoten", sub = "Strukturelle Löcher (grün) und Brücken (blau)")
+dev.off()
+
+```
+
+Mit der Programmbibliothek „*InfluenceR“* konnten weitere Schlüsselakteure identifizieren werden, die das Netzwerk prägen:
+
+-   Der „FC Heidenheim“ spielt eine bedeutende Rolle bei der Überbrückung sogenannter struktureller Löcher im Netzwerk. Das bedeutet, dass er Verbindungen zwischen Akteuren schafft, die sonst isoliert wären.
+
+-   Die „Badische[n] Neueste[n] Nachrichten“ fungieren als Brücke zwischen verschiedenen Akteursgruppen und ermöglichen eine überregionale Kommunikation.
+
+## Erklärungsmuster: Reziprozität und Transitivität
+
+Zur Erklärung der Netzwerkstruktur spielen zwei zentrale Konzepte eine Rolle: Reziprozität und Transitivität.
+
+**Reziprozität** beschreibt die gegenseitige Anerkennung in einem Netzwerk. Sie bedeutet, dass zwei Knoten in einem gerichteten Netzwerk wechselseitig verbunden sind.
+
+**Transitivität** beschreibt die Wahrscheinlichkeit, dass eine Beziehung zwischen drei Knoten besteht, also triadische Verbindungen auftreten.
+
+### Reziprozität
+
+Für die Berechnung der Reziprozität im Netzwerk verwende ich das vereinfachte Gesamtnetzwerk.
+
+```{r Reziprozität}
+
+library(igraph)
+?reciprocity
+reciprocity(footballmedia)
+reciprocity(pro)
+reciprocity(ama)
+
+```
+
+Im untersuchten Netzwerk ist die Reziprozität aufgrund seiner ungerichteten Natur überall 100%. Dies bedeutet, dass jede Beziehung in beide Richtungen gilt und keine spezifische Richtung für die Verbindung vorliegt.
+
+### Transitivität
+
+Transitivität ist eng mit Triaden oder "Tripletts" verbunden.
+
+```{r Transitivität}
+
+?transitivity
+transitivity(footballmedia)
+transitivity(pro)
+transitivity(ama)
+
+#Dreiecke identifizieren
+
+triangles_list <- triangles(footballmedia)
+print(triangles_list)
+
+triangle_pairs <- matrix(triangles_list, ncol = 3, byrow = TRUE)
+print(triangle_pairs)
+
+```
+
+In den Teilnetzwerken der Profi- und Amateurvereine liegt die Transitivität bei 0. Dies bedeutet, dass keine triadischen Beziehungen existieren. Der Grund dafür ist, dass die Vereine nicht direkt miteinander verbunden sind, sondern ausschließlich über Verbände oder Medien miteinander in Beziehung stehen. Zudem existiert keine Verbindung zwischen Medien, die denselben Verein oder Verband gemeinsam abdecken.
+
+Im Gesamtnetzwerk ist eine geringe Transitivität von 0,77% feststellbar. Diese geringe Zahl zeigt, dass triadische Beziehungen zwar selten, aber vorhanden sind. Beispiele dafür sind Verbindungen zwischen dem SWR, SWR1 und den Erstligisten. Der SWR und SWR1 sind rechtlich miteinander verbunden, während der SWR über seine Online- und TV-Berichterstattung in direkter Verbindung zu den Erstligisten steht. SWR1 ergänzt dies durch die Berichterstattung in seiner Samstagskonferenz.
